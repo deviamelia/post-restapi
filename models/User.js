@@ -1,27 +1,33 @@
 const mongoose = require('mongoose')
+const moment = require('moment')
+
+
+
 const userSchema = mongoose.Schema({
     username: {
         type: String,
         required: true,
         max: 45
+
     },
     password: {
         type: String,
         required: true,
         min: 6,
-        max:255
-
+        max: 255
     },
-    created_date:{
+    created_date: {
         type: Date,
         default: Date.now
     },
-    modified_date:{
+    modified_date: {
         type: Date,
-        default:null
+        default: null
     }
-},{
+
+}, {
     versionKey: false
 })
 
-module.exports= mongoose.model('User', userSchema, 'user')
+
+module.exports = mongoose.model('User', userSchema, 'user')
